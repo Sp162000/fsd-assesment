@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  springboot-app:
+    build:
+      context: /Users/sachinpadwal/Downloads/fsd assesment project/Backend/fsd-assesment
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+
+
+  angular-app:
+    build:
+      context: /Users/sachinpadwal/Downloads/fsd assesment project/Frontend/fsd-assesment
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - springboot-app
+
+networks:
+  default:
+    driver: bridge
